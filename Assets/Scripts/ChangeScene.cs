@@ -5,6 +5,7 @@ using UnityEngine.SceneManagement;
 
 public class ChangeScene : MonoBehaviour
 {
+    public static int Coin = 0;
     // Start is called before the first frame update
     public void ChangeSelectStage()
     {
