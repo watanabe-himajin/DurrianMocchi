@@ -4,7 +4,25 @@
 EditorBuildSettings:
   m_ObjectHideFlags: 0
   serializedVersion: 2
-  m_Scenes: []
+  m_Scenes:
+  - enabled: 1
+    path: Assets/Scenes/Title.unity
+    guid: 75020dd549fc4df49a9b1dba0daf76ea
+  - enabled: 1
+    path: Assets/Scenes/SelectStage.unity
+    guid: 7c943c44dedbae845a342fcb9ac9dbe7
+  - enabled: 1
+    path: Assets/Scenes/River.unity
+    guid: 37b2dffe5ae99b340bca770d815fdcbd
+  - enabled: 1
+    path: Assets/Scenes/Swamp.unity
+    guid: 59fd625257e964b429e48ed7d51d1cd4
+  - enabled: 1
+    path: Assets/Scenes/Sea.unity
+    guid: 4d5bcd5d446c72c41bf173153e5f1d59
+  - enabled: 1
+    path: Assets/Scenes/TestStage.unity
+    guid: f90192aeb5840504cbf0c924aa394493
   m_configObjects:
     com.unity.input.settings: {fileID: 11400000, guid: b5c2ca7bfb45a4f43a57bd48530afc97, type: 2}
     com.unity.xr.management.loader_settings: {fileID: 11400000, guid: 07c1680eed98eb5449927b617e286047, type: 2}
