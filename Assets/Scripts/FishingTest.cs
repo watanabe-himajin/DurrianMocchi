@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+
 public class FishingTest : MonoBehaviour
 {
     string[] Fish = new string[5] { "a", "b", "c", "d", "e" };
@@ -30,8 +31,9 @@ public class FishingTest : MonoBehaviour
         }
         if(Input.GetKeyDown(KeyCode.Return))
         {
-            Debug.Log("Clear");
             strage = 0;
+            ChangeScene.Coin += 10;
+            Debug.Log(ChangeScene.Coin);
         }
     }
 }
