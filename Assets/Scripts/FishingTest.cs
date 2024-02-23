@@ -5,9 +5,14 @@ using UnityEngine;
 
 public class FishingTest : MonoBehaviour
 {
+    [SerializeField] private GameObject CarpPrefab;
+    private GameObject Carp;
+
+
     string[] Fish = new string[5] { "a", "b", "c", "d", "e" };
     int max = 5;
     int strage = 0;
+    int chanseholder = 0;
     void Start()
     {
         
@@ -20,9 +25,26 @@ public class FishingTest : MonoBehaviour
         {
             if(strage < max)
             {
-                int random = Random.Range(0, 5);
-                Debug.Log(Fish[random]);
-                strage++;
+                int chanse = Random.Range(0, 101);
+                if(chanse > 20)
+                {
+                    Debug.Log(chanse);
+                }
+                else if(chanse <= 20)
+                {
+                    int random = Random.Range(0, 5);
+                    Debug.Log(Fish[random]);
+                    switch (random)
+                    {
+                        case 0:
+                            Carp = Instantiate(CarpPrefab, transform.position, CarpPrefab.transform.rotation);
+                            break;
+                        default:
+                            break;
+                    }
+                    strage++;
+                    Debug.Log(chanse);
+                }
             }
             else
             {
@@ -36,4 +58,6 @@ public class FishingTest : MonoBehaviour
             Debug.Log(ChangeScene.Coin);
         }
     }
+    
 }
+
