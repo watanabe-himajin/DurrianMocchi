@@ -14,37 +14,28 @@ public class FishingTest : MonoBehaviour
     private GameObject Catfish;
     [SerializeField] private GameObject SweetfishPrefab;
     private GameObject Sweetfish;
+    [SerializeField] private GameObject BlackbassPrefab;
+    private GameObject Blackbass;
 
     string[] Fish = new string[5] { "a", "b", "c", "d", "e" };
     int max = 5;
     int strage = 0;
-    int chanseholder = 0;
-    int chance = Random.Range(0, 5);
+    
     void Start()
     {
-        Fishing = false;
+
     }
 
     // Update is called once per frame
     void Update()
     {
-        
-        if (chance > 2)
-        {
-            Invoke(nameof(RandomNumber), 1.0f);
-        }
-        else if (chance <= 2)
-        {
-            Fishing = true;
-            Exclamation = Instantiate(ExclamationPrefab, transform.position, ExclamationPrefab.transform.rotation);
-            Invoke(nameof(ChangeFlag), 1.0f);
-            return;
-        }
         if (Input.GetKeyDown(KeyCode.Space))
         {
             if(strage < max)
             {
-                if(Fishing == true)
+                int a = 0;
+                //FishFlag.Hit == true
+                if (FishFlag.Hit == true)
                 {
                     int random = Random.Range(0, 5);
                     Debug.Log(Fish[random]);
@@ -63,6 +54,7 @@ public class FishingTest : MonoBehaviour
                             ChangeScene.Coin += 4;
                             break;
                         case 3:
+                            Blackbass = Instantiate(BlackbassPrefab, transform.position, BlackbassPrefab.transform.rotation);
                             ChangeScene.Coin += 3;
                             break;
                         case 4:
