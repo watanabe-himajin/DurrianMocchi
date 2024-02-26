@@ -2,7 +2,6 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-
 public class FishingTest : MonoBehaviour
 {
     public bool Fishing;
@@ -16,11 +15,14 @@ public class FishingTest : MonoBehaviour
     private GameObject Sweetfish;
     [SerializeField] private GameObject BlackbassPrefab;
     private GameObject Blackbass;
+    //[SerializeField] private GameObject Prefab;
+    //private GameObject ;
 
-    string[] Fish = new string[5] { "a", "b", "c", "d", "e" };
+    string[] Fish = new string[5] { "Carp!", "Catfish!", "Sweetfish!", "Blackbass!", "e" };
     int max = 5;
     int strage = 0;
-    
+    static int CoinStrage;
+
     void Start()
     {
 
@@ -29,36 +31,38 @@ public class FishingTest : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        
         if (Input.GetKeyDown(KeyCode.Space))
-        {
-            if(strage < max)
-            {
+        {            
+            if (strage < max)
+            {     
                 int a = 0;
                 //FishFlag.Hit == true
                 if (FishFlag.Hit == true)
                 {
+                    Debug.Log(a);
                     int random = Random.Range(0, 5);
                     Debug.Log(Fish[random]);
                     switch (random)
                     {
                         case 0:
                             Carp = Instantiate(CarpPrefab, transform.position, CarpPrefab.transform.rotation);
-                            ChangeScene.Coin += 2;
+                            CoinStrage += 2;
                             break;
                         case 1:
                             Catfish = Instantiate(CatfishPrefab, transform.position, CatfishPrefab.transform.rotation);
-                            ChangeScene.Coin += 3;
+                            CoinStrage += 3;
                             break;
                         case 2:
                             Sweetfish = Instantiate(SweetfishPrefab, transform.position, SweetfishPrefab.transform.rotation);
-                            ChangeScene.Coin += 4;
+                            CoinStrage += 4;
                             break;
                         case 3:
                             Blackbass = Instantiate(BlackbassPrefab, transform.position, BlackbassPrefab.transform.rotation);
-                            ChangeScene.Coin += 3;
+                            CoinStrage += 3;
                             break;
                         case 4:
-                            ChangeScene.Coin += 5;
+                            CoinStrage += 5;
                             break;
                         default:
                             break;
@@ -74,6 +78,8 @@ public class FishingTest : MonoBehaviour
         if(Input.GetKeyDown(KeyCode.Return))
         {
             strage = 0;
+            ChangeScene.Coin += CoinStrage;
+            CoinStrage = 0;
             Debug.Log(ChangeScene.Coin);
         }
     }
