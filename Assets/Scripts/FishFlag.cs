@@ -18,11 +18,14 @@ public class FishFlag : MonoBehaviour
     }
     private void OnTriggerEnter(Collider other)
     {
-        if(other.gameObject.CompareTag("FishShadow"))
+        if (other.gameObject.CompareTag("FishShadow"))
         {
             Hit = true;
         }
-        else
+    }
+    private void OnTriggerExit(Collider other)
+    {
+        if(other.gameObject.CompareTag("FishShadow"))
         {
             Hit = false;
         }
