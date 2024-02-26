@@ -911,6 +911,7 @@ MonoBehaviour:
   CatfishPrefab: {fileID: 5744091226223895432, guid: 6f574077ae6c87d4d9bf7e25d1d5bd24, type: 3}
   SweetfishPrefab: {fileID: 4899149074434271989, guid: 3c5b59a26a8a1d04bbe00b4e85d61937, type: 3}
   BlackbassPrefab: {fileID: 7295126249525809529, guid: 4d99998d97a89a8459096c40facae326, type: 3}
+  CrayfishPrefab: {fileID: 5483171293017262236, guid: 131a95bf6e28dca4192f17d6dce927c1, type: 3}
 --- !u!4 &1412321266
 Transform:
   m_ObjectHideFlags: 0
@@ -1072,6 +1073,7 @@ GameObject:
   - component: {fileID: 1806702980}
   - component: {fileID: 1806702979}
   - component: {fileID: 1806702983}
+  - component: {fileID: 1806702984}
   m_Layer: 0
   m_Name: Point
   m_TagString: Untagged
@@ -1169,6 +1171,20 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 057fe16e4d274ec4598e5206c71866af, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &1806702984
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1806702978}
+  m_Enabled: 0
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b1edb2ecc5f3b254ca1e00a59798fcc3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  UpDown: 10
+  UpDownTime: 3
 --- !u!1 &1885643156
 GameObject:
   m_ObjectHideFlags: 0

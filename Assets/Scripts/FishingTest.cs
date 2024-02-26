@@ -15,10 +15,10 @@ public class FishingTest : MonoBehaviour
     private GameObject Sweetfish;
     [SerializeField] private GameObject BlackbassPrefab;
     private GameObject Blackbass;
-    //[SerializeField] private GameObject Prefab;
-    //private GameObject ;
+    [SerializeField] private GameObject CrayfishPrefab;
+    private GameObject Crayfish;
 
-    string[] Fish = new string[5] { "Carp!", "Catfish!", "Sweetfish!", "Blackbass!", "e" };
+    string[] Fish = new string[5] { "Carp!", "Catfish!", "Sweetfish!", "Blackbass!", "Crayfish!" };
     int max = 5;
     int strage = 0;
     static int CoinStrage;
@@ -62,6 +62,7 @@ public class FishingTest : MonoBehaviour
                             CoinStrage += 3;
                             break;
                         case 4:
+                            Crayfish = Instantiate(CrayfishPrefab, transform.position, CrayfishPrefab.transform.rotation);
                             CoinStrage += 5;
                             break;
                         default:
