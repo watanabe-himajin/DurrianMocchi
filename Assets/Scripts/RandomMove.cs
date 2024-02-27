@@ -7,8 +7,7 @@ public class RandomMove : MonoBehaviour
     [SerializeField] private float ChangeTime;
     [SerializeField] private float SpeedX;
     [SerializeField] private float SpeedZ;
-    [SerializeField] private float RangeX;
-    [SerializeField] private float RangeZ;
+    [SerializeField] private bool Stay;
     private float TimeCount;
 
     // Start is called before the first frame update
@@ -20,22 +19,27 @@ public class RandomMove : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if(this.transform.position.x < RangeX && this.transform.position.x > - RangeX)
-        {
-            transform.Translate(new Vector3(SpeedX, 0, 0));
-        }
+        transform.Translate(new Vector3(SpeedX, 0, SpeedZ));
 
-        if(this.transform.position.z < RangeZ && this.transform.position.z > - RangeZ)
+        if (Stay == false)
         {
-            transform.Translate(new Vector3(0, 0, SpeedZ));
+            Destroy(this.gameObject);
         }
 
         TimeCount += Time.deltaTime;
+
         if(TimeCount > ChangeTime)
         {
             Vector3 course = new Vector3(0, Random.Range(0, 360), 0);
             transform.localRotation = Quaternion.Euler(course);
             TimeCount = 0;
+        }
+    }
+    private void OnTriggerExit(Collider other)
+    {
+        if (other.gameObject.CompareTag("Area"))
+        {
+            Stay = false;
         }
     }
 }

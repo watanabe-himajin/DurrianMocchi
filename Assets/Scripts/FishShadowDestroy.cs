@@ -2,9 +2,9 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class FishFlag : MonoBehaviour
+public class FishShadowDestroy : MonoBehaviour
 {
-    [SerializeField] public static bool Hit;
+    private bool Pointing = false;
     // Start is called before the first frame update
     void Start()
     {
@@ -13,21 +13,25 @@ public class FishFlag : MonoBehaviour
 
     // Update is called once per frame
     void Update()
-    {
-        
+    {/*
+        if(FishingTest.Fishing == true && Pointing == true)
+        {
+            Destroy(this.gameObject);
+        }
+       */ 
     }
     private void OnTriggerEnter(Collider other)
     {
-        if (other.gameObject.CompareTag("FishShadow"))
+        if(other.gameObject.CompareTag("FishingFloat"))
         {
-            Hit = true;
+            Pointing = true;
         }
     }
     private void OnTriggerExit(Collider other)
     {
-        if(other.gameObject.CompareTag("FishShadow"))
+        if (other.gameObject.CompareTag("FishingFloat"))
         {
-            Hit = false;
+            Pointing = false;
         }
     }
 }
