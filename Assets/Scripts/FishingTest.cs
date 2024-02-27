@@ -30,45 +30,17 @@ public class FishingTest : MonoBehaviour
 
     // Update is called once per frame
     void Update()
-    {
-        
-        if (Input.GetKeyDown(KeyCode.Space))
+    {       
+        if (Input.GetMouseButtonDown(0))
         {            
             if (strage < max)
             {     
-                int a = 0;
-                //FishFlag.Hit == true
-                if (FishFlag.Hit == true)
-                {
-                    Debug.Log(a);
-                    int random = Random.Range(0, 5);
-                    Debug.Log(Fish[random]);
-                    switch (random)
-                    {
-                        case 0:
-                            Carp = Instantiate(CarpPrefab, transform.position, CarpPrefab.transform.rotation);
-                            CoinStrage += 2;
-                            break;
-                        case 1:
-                            Catfish = Instantiate(CatfishPrefab, transform.position, CatfishPrefab.transform.rotation);
-                            CoinStrage += 3;
-                            break;
-                        case 2:
-                            Sweetfish = Instantiate(SweetfishPrefab, transform.position, SweetfishPrefab.transform.rotation);
-                            CoinStrage += 4;
-                            break;
-                        case 3:
-                            Blackbass = Instantiate(BlackbassPrefab, transform.position, BlackbassPrefab.transform.rotation);
-                            CoinStrage += 3;
-                            break;
-                        case 4:
-                            Crayfish = Instantiate(CrayfishPrefab, transform.position, CrayfishPrefab.transform.rotation);
-                            CoinStrage += 5;
-                            break;
-                        default:
-                            break;
-                    }
+                if (FishFlag.Hit == true && Fishing == true)
+                {                 
+                    Invoke(nameof(RandomFish), 2.0f);
                     strage++;
+                    Fishing = false;
+                    Invoke(nameof(WaitFishing), 3.0f);
                 }
             }
             else
@@ -76,7 +48,7 @@ public class FishingTest : MonoBehaviour
                 Debug.Log("Full!!!!!");
             }
         }
-        if(Input.GetKeyDown(KeyCode.Return))
+        if(Input.GetMouseButtonDown(1))
         {
             strage = 0;
             ChangeScene.Coin += CoinStrage;
@@ -91,6 +63,39 @@ public class FishingTest : MonoBehaviour
     private void RandomNumber()
     {
         int chance = Random.Range(0, 101);
+    }
+    private void WaitFishing()
+    {
+        Fishing = true;
+    }
+    private void RandomFish()
+    {
+        int random = Random.Range(0, 5);
+        switch (random)
+        {
+            case 0:
+                Carp = Instantiate(CarpPrefab, transform.position, CarpPrefab.transform.rotation);
+                CoinStrage += 2;
+                break;
+            case 1:
+                Catfish = Instantiate(CatfishPrefab, transform.position, CatfishPrefab.transform.rotation);
+                CoinStrage += 3;
+                break;
+            case 2:
+                Sweetfish = Instantiate(SweetfishPrefab, transform.position, SweetfishPrefab.transform.rotation);
+                CoinStrage += 4;
+                break;
+            case 3:
+                Blackbass = Instantiate(BlackbassPrefab, transform.position, BlackbassPrefab.transform.rotation);
+                CoinStrage += 3;
+                break;
+            case 4:
+                Crayfish = Instantiate(CrayfishPrefab, transform.position, CrayfishPrefab.transform.rotation);
+                CoinStrage += 5;
+                break;
+            default:
+                break;
+        }
     }
 }
 
