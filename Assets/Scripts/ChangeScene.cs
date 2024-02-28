@@ -5,35 +5,28 @@ using UnityEngine.SceneManagement;
 
 public class ChangeScene : MonoBehaviour
 {
-    public static int Coin = 0;
-    // Start is called before the first frame update
-    public void ChangeSelectStage()
-    {
-        SceneManager.LoadScene("SelectStage");
-    }
-
-    public void ChangeTitle()
+    public void Title()
     {
         SceneManager.LoadScene("Title");
     }
-
-    public void ChangeRiver()
+    public void SelectStage()
+    {
+        SceneManager.LoadScene("SelectStage");
+    }
+    public void Tutorial()
+    {
+        SceneManager.LoadScene("Tutorial");
+    }
+    public void River()
     {
         SceneManager.LoadScene("River");
     }
-
-    public void ChangeSwamp()
+    public void Swamp()
     {
         SceneManager.LoadScene("Swamp");
     }
-
-    public void ChangeSea()
+    public void Sea()
     {
         SceneManager.LoadScene("Sea");
-    }
-
-    public void ChangeTestStage()
-    {
-        SceneManager.LoadScene("TestStage");
     }
 }

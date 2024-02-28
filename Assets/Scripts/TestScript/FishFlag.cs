@@ -21,6 +21,7 @@ public class FishFlag : MonoBehaviour
         if (other.gameObject.CompareTag("FishShadow"))
         {
             Hit = true;
+            FishingTest.Fishing = true;
         }
     }
     private void OnTriggerExit(Collider other)
@@ -28,6 +29,7 @@ public class FishFlag : MonoBehaviour
         if(other.gameObject.CompareTag("FishShadow"))
         {
             Hit = false;
+            FishingTest.Fishing = false;
         }
     }
 }

@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class FishingTest : MonoBehaviour
 {
-    public bool Fishing;
+    [SerializeField] public static bool Fishing;
     [SerializeField] private GameObject ExclamationPrefab;
     private GameObject Exclamation;
     [SerializeField] private GameObject CarpPrefab;
@@ -38,9 +38,9 @@ public class FishingTest : MonoBehaviour
                 if (FishFlag.Hit == true && Fishing == true)
                 {                 
                     Invoke(nameof(RandomFish), 2.0f);
-                    strage++;
-                    Fishing = false;
                     Invoke(nameof(WaitFishing), 3.0f);
+                    strage++;
+                    ChangeFlag1();
                 }
             }
             else
@@ -56,9 +56,14 @@ public class FishingTest : MonoBehaviour
             Debug.Log(ChangeScene.Coin);
         }
     }
-    private void ChangeFlag()
+    private void ChangeFlag1()
     {
         Fishing = false;
+        Invoke(nameof(ChangeFlag2), 4.0f);
+    }
+    private void ChangeFlag2()
+    {
+        Fishing = true;
     }
     private void RandomNumber()
     {
